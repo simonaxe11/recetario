@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Añadir Receta Nueva</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input [(ngModel)]="item.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Ingredientes</ion-label>
+      <ion-input [(ngModel)]="item.ingredientes"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Paso a paso</ion-label>
+      <ion-input [(ngModel)]="item.pasoapaso"></ion-input>
+  </ion-item>
+  <button ion-button block color="dark" (click)="anadirReceta(item)">Añadir</button>
+</ion-content>
