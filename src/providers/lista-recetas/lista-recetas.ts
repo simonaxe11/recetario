@@ -19,4 +19,14 @@ export class ListaRecetasProvider {
   getRecetasList(){
     return this.refListaRecetas;
   }
+
+  editarReceta(item:RecetaItem){
+    return this.refListaRecetas.update(item.key, item);
+  }
+  borrarReceta(item:RecetaItem){
+    return this.refListaRecetas.remove (item.key);
+  }
+  verReceta(item:RecetaItem){
+    return this.refListaRecetas.set (item.key, item);
+  }
 }

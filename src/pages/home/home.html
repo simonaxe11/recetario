@@ -1,11 +1,11 @@
 <ion-header>
 
-  <ion-navbar color = "dark">
+  <ion-navbar color = "dark" hideBackButton>
     <ion-title>RECETAS</ion-title>
     <ion-buttons end>
       <button ion-button
               navPush="AnadirRecetaPage">
-        <ion-icon color="white" name="add-circle-outline"></ion-icon>
+        <ion-icon color="white" name="add"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -14,5 +14,27 @@
 
 
 <ion-content padding>
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item *ngFor="let item of listaRecetas | async"
+          (click)="selectRecetaItem(item)">
+          <h1><b>{{item.nombre}}</b></h1>
+        </ion-item>
 
+        <ion-item-options side="left">
+            <button ion-button  color="secondary" > <!-- //navPush="EditarRecetaPage" -->
+              <ion-icon name="ios-create"></ion-icon>
+              Modificar
+            </button>
+        </ion-item-options>
+
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="borrarReceta(item)">
+            <ion-icon name="ios-trash"></ion-icon>
+            Eliminar
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      
+    </ion-list> 
 </ion-content>

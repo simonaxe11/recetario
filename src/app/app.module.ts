@@ -9,7 +9,6 @@ import { MyApp } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { ListaRecetasProvider } from '../providers/lista-recetas/lista-recetas';
-//import { ListaCompraProvider } from '../providers/lista-compra/lista-compra';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB75X0KCHMuAC72nsPHQlURkW33JuJBZEM",
@@ -26,7 +25,9 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: 'Atrás'
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],

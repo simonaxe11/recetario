@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Modificar Receta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="item.nombre" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Ingredientes</ion-label>
+    <ion-input [(ngModel)]="item.ingredientes" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Paso a paso</ion-label>
+    <ion-input [(ngModel)]="item.pasoapaso" type="text"></ion-input>
+  </ion-item>
+  <button ion-button block color="secondary" (click)="guardarReceta(item)">Guardar</button>
+  <!-- <button ion-button block  color="danger" (click)="borrarReceta(item)">Eliminar</button> -->
+</ion-content>

@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams/* , ToastController */ } from 'ionic-angular';
 import { ListaRecetasProvider } from '../../providers/lista-recetas/lista-recetas';
 
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Observable} from 'rxjs/Observable';
+import {map} from 'rxjs/operators';
+import { RecetaItem } from '../../models/receta-item/receta-item.interface';
 
 @IonicPage()
 @Component({
@@ -16,13 +13,52 @@ import { ListaRecetasProvider } from '../../providers/lista-recetas/lista-receta
 })
 export class HomePage {
 
+  // item : RecetaItem;
+  listaRecetas : Observable<RecetaItem[]>
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private receta: ListaRecetasProvider) {
+              private receta: ListaRecetasProvider
+              /* private servicioListaRecetas: ListaRecetasProvider,
+              private toast: ToastController */) {
+
+      // console.log(navParams.get("item"));            
+
+      // this.item = navParams.get("item");
+  
+      this.listaRecetas = this.receta
+          .getRecetasList()
+          .snapshotChanges()
+          .pipe (map (changes =>{
+            return changes.map( c=>(
+              {
+                key: c.payload.key,
+                ...c.payload.val(),
+              }
+            )
+            )
+          }
+          )
+          )
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  selectRecetaItem(recetaItem:RecetaItem){
+    this.navCtrl.push("VerRecetaPage", {"item": recetaItem});
   }
 
+  // borrarReceta(item:RecetaItem){
+  //   this.servicioListaRecetas.borrarReceta(item)
+  //       .then (()=>{
+  //         this.mensaje("Receta Eliminada");
+  //       }
+  //       )
+  // }
+
+  // mensaje (texto:string){
+  //   const toast = this.toast.create({
+  //     message: texto,
+  //     duration: 3000
+  //   });
+  //   toast.present();
+  // }
 }
