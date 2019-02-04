@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar color="dark">
+  <ion-navbar color="dark" hideBackButton>
     <ion-title>Modificar Receta</ion-title>
   </ion-navbar>
 
@@ -11,15 +11,15 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Nombre</ion-label>
-    <ion-input [(ngModel)]="item.nombre" type="text"></ion-input>
+    <ion-input [(ngModel)]="item.nombre" type="text" ></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Ingredientes</ion-label>
-    <ion-input [(ngModel)]="item.ingredientes" type="text"></ion-input>
+    <ion-textarea [(ngModel)]="item.ingredientes" type="text" rows="20" maxLength="500"></ion-textarea>
   </ion-item>
   <ion-item>
     <ion-label>Paso a paso</ion-label>
-    <ion-input [(ngModel)]="item.pasoapaso" type="text"></ion-input>
+    <ion-textarea [(ngModel)]="item.pasoapaso" type="text" rows="50" maxLength="1500"></ion-textarea>
   </ion-item>
   <button ion-button block color="secondary" (click)="guardarReceta(item)">Guardar</button>
   <!-- <button ion-button block  color="danger" (click)="borrarReceta(item)">Eliminar</button> -->

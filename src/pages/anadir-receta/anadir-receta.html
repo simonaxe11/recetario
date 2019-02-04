@@ -14,11 +14,11 @@
   </ion-item>
   <ion-item>
       <ion-label>Ingredientes</ion-label>
-      <ion-input [(ngModel)]="item.ingredientes"></ion-input>
+      <ion-textarea [(ngModel)]="item.ingredientes" rows="20" maxLength="500"></ion-textarea>
   </ion-item>
   <ion-item>
       <ion-label>Paso a paso</ion-label>
-      <ion-input [(ngModel)]="item.pasoapaso"></ion-input>
+      <ion-textarea [(ngModel)]="item.pasoapaso" rows="50" maxLength="1500"></ion-textarea>
   </ion-item>
   <button ion-button block color="dark" (click)="anadirReceta(item)">Añadir</button>
 </ion-content>

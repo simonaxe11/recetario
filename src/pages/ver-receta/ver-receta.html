@@ -15,10 +15,10 @@
       </ion-item>
       <ion-item>
         <ion-label>Ingredientes</ion-label>
-        <ion-input [(ngModel)]="item.ingredientes" type="text"></ion-input>
+        <ion-textarea [(ngModel)]="item.ingredientes" type="text" rows="20" maxLength="500"></ion-textarea>
       </ion-item>
       <ion-item>
         <ion-label>Paso a paso</ion-label>
-        <ion-input [(ngModel)]="item.pasoapaso" type="text"></ion-input>
+        <ion-textarea [(ngModel)]="item.pasoapaso" type="text" rows="50" maxLength="1500"></ion-textarea>
       </ion-item>
 </ion-content>
