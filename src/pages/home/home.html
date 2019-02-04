@@ -15,14 +15,14 @@
 
 <ion-content padding>
     <ion-list>
-      <ion-item-sliding>
-        <ion-item *ngFor="let item of listaRecetas | async"
+      <ion-item-sliding *ngFor="let item of listaRecetas | async">
+        <ion-item 
           (click)="selectRecetaItem(item)">
           <h1><b>{{item.nombre}}</b></h1>
         </ion-item>
 
         <ion-item-options side="left">
-            <button ion-button  color="secondary" > <!-- //navPush="EditarRecetaPage" -->
+            <button ion-button  color="secondary" (click)="modificarRecetaItem(item)" >
               <ion-icon name="ios-create"></ion-icon>
               Modificar
             </button>

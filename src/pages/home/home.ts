@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams/* , ToastController */ } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController} from 'ionic-angular';
 import { ListaRecetasProvider } from '../../providers/lista-recetas/lista-recetas';
 
 import {Observable} from 'rxjs/Observable';
@@ -13,18 +13,18 @@ import { RecetaItem } from '../../models/receta-item/receta-item.interface';
 })
 export class HomePage {
 
-  // item : RecetaItem;
+  item : RecetaItem;
   listaRecetas : Observable<RecetaItem[]>
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private receta: ListaRecetasProvider
-              /* private servicioListaRecetas: ListaRecetasProvider,
-              private toast: ToastController */) {
+              private receta: ListaRecetasProvider,
+              private servicioListaRecetas: ListaRecetasProvider,
+              private toast: ToastController) {
 
-      // console.log(navParams.get("item"));            
+      console.log(navParams.get("item"));            
 
-      // this.item = navParams.get("item");
+      this.item = navParams.get("item");
   
       this.listaRecetas = this.receta
           .getRecetasList()
@@ -46,19 +46,23 @@ export class HomePage {
     this.navCtrl.push("VerRecetaPage", {"item": recetaItem});
   }
 
-  // borrarReceta(item:RecetaItem){
-  //   this.servicioListaRecetas.borrarReceta(item)
-  //       .then (()=>{
-  //         this.mensaje("Receta Eliminada");
-  //       }
-  //       )
-  // }
+  modificarRecetaItem(recetaItem:RecetaItem){
+    this.navCtrl.push("EditarRecetaPage", {"item": recetaItem});
+  }
 
-  // mensaje (texto:string){
-  //   const toast = this.toast.create({
-  //     message: texto,
-  //     duration: 3000
-  //   });
-  //   toast.present();
-  // }
+  borrarReceta(item:RecetaItem){
+    this.servicioListaRecetas.borrarReceta(item)
+        .then (()=>{
+          this.mensaje("Receta Eliminada");
+        }
+        )
+  }
+
+  mensaje (texto:string){
+    const toast = this.toast.create({
+      message: texto,
+      duration: 3000
+    });
+    toast.present();
+  }
 }
