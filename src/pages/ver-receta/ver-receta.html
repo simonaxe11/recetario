@@ -11,14 +11,14 @@
 <ion-content padding>
     <ion-item>
         <ion-label>Nombre</ion-label>
-        <ion-input [(ngModel)]="item.nombre" type="text"></ion-input>
+        <ion-input [(ngModel)]="item.nombre" type="text" readonly></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Ingredientes</ion-label>
-        <ion-textarea [(ngModel)]="item.ingredientes" type="text" rows="20" maxLength="500"></ion-textarea>
+        <ion-textarea [(ngModel)]="item.ingredientes" type="text" rows="20" maxLength="500" readonly></ion-textarea>
       </ion-item>
       <ion-item>
         <ion-label>Paso a paso</ion-label>
-        <ion-textarea [(ngModel)]="item.pasoapaso" type="text" rows="50" maxLength="1500"></ion-textarea>
+        <ion-textarea [(ngModel)]="item.pasoapaso" type="text" rows="20" maxLength="3000" readonly></ion-textarea>
       </ion-item>
 </ion-content>
